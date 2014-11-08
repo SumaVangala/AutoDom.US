@@ -15,7 +15,7 @@ ul {
 
 body {
     font-size: 16px;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
     color: #444;
     margin: 30px 40px;
 }
@@ -29,7 +29,7 @@ body {
 /*/
 
 .gridster ul {
-    background-color: #EFEFEF;
+    background-color: #FFFFFF;
 }
 
 .gridster li {
@@ -53,17 +53,27 @@ body {
 }
 
 .gridster .gs-w {
-    background: #DDD;
+    background: #00CCFF;
     cursor: pointer;
 }
 
 .gridster .player {
-    background: #BBB;
+    background: #00CCFF;
 }
 
 
 .gridster .preview-holder {
     border: none!important;
-    background: red!important;
+    background: #33D6FF!important;
 }
 
+.gridster li header {
+    background: #999;
+    display: block;
+    font-size: 15px;
+    line-height: normal;
+    padding: 4px 0 6px ;
+    margin-bottom: 20px;
+    cursor: move;
+
+}

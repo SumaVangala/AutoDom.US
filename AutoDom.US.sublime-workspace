@@ -3,18 +3,47 @@
 	{
 		"selected_items":
 		[
+			[
+				"lo",
+				"localStorage"
+			],
+			[
+				"grid",
+				"gridster"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"tr",
+				"transparent"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"btn",
+				"btnShowTutorial"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"li",
+				"link	Tag"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "<html>\n<head>\n	<title>AutoDom.US</title>\n</head>\n<body>\n	<script type=\"text/javascript\">\n		$(function(){ //DOM Ready\n		 \n		    $(\".gridster ul\").gridster({\n		        widget_margins: [10, 10],\n		        widget_base_dimensions: [140, 140]\n		    });\n		 \n		});\n	</script>\n<div class=\"gridster\">\n    <ul>\n        <li data-row=\"1\" data-col=\"1\" data-sizex=\"1\" data-sizey=\"1\"></li>\n        <li data-row=\"2\" data-col=\"1\" data-sizex=\"1\" data-sizey=\"1\"></li>\n        <li data-row=\"3\" data-col=\"1\" data-sizex=\"1\" data-sizey=\"1\"></li>\n \n        <li data-row=\"1\" data-col=\"2\" data-sizex=\"2\" data-sizey=\"1\"></li>\n        <li data-row=\"2\" data-col=\"2\" data-sizex=\"2\" data-sizey=\"2\"></li>\n \n        <li data-row=\"1\" data-col=\"4\" data-sizex=\"1\" data-sizey=\"1\"></li>\n        <li data-row=\"2\" data-col=\"4\" data-sizex=\"2\" data-sizey=\"1\"></li>\n        <li data-row=\"3\" data-col=\"4\" data-sizex=\"1\" data-sizey=\"1\"></li>\n \n        <li data-row=\"1\" data-col=\"5\" data-sizex=\"1\" data-sizey=\"1\"></li>\n        <li data-row=\"3\" data-col=\"5\" data-sizex=\"1\" data-sizey=\"1\"></li>\n \n        <li data-row=\"1\" data-col=\"6\" data-sizex=\"1\" data-sizey=\"1\"></li>\n        <li data-row=\"2\" data-col=\"6\" data-sizex=\"1\" data-sizey=\"2\"></li>\n    </ul>\n</div>\n</body>\n</html>",
-			"file": "/C/Users/suma/Desktop/AutoDomUS/home.html",
-			"file_size": 1264,
-			"file_write_time": 130596524833453363,
+			"file": "home.html",
 			"settings":
 			{
-				"buffer_size": 1228,
+				"buffer_size": 5463,
 				"line_ending": "Windows"
 			}
 		}
@@ -43,11 +72,14 @@
 	},
 	"file_history":
 	[
+		"/C/Users/suma/Desktop/AutoDom.US/css/demo.css",
+		"/C/Users/suma/Desktop/AutoDom.US/home.html",
+		"/C/Users/suma/Desktop/AutoDom.US/home",
 		"/C/Users/suma/Desktop/AutoDomUS/home.html"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -61,6 +93,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"&&",
+			"gw"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -83,26 +117,28 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/suma/Desktop/AutoDomUS/home.html",
+					"file": "home.html",
 					"settings":
 					{
-						"buffer_size": 1228,
+						"buffer_size": 5463,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								48,
-								48
+								304,
+								304
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1665.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -116,7 +152,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
@@ -166,6 +202,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 223.0,
 	"status_bar_visible": true
 }

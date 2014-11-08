@@ -1,49 +1,90 @@
 <html>
-<head>
-	<title>AutoDom.US</title>
+  <head>
+    <title>AutoDOM.US</title>
     <script src="js/jquery-1.11.1.min.js"></script>
     <script src="js/jquery.gridster.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery.gridster.min.css">
-    <link rel="stylesheet" type="text/css" href="css/demo.css">
-</head>
-<body>
-	<script type="text/javascript">
-		$(function(){
-		 
-		    gridster = $(".gridster ul").gridster({
-		        widget_margins: [10, 10],
-		        widget_base_dimensions: [140, 140],
-                resize: {
-                    enabled: true
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+    <script type="text/javascript">
+      var gridster;
+          $(function(){
+            if(typeof(Storage) !== "undefined") {
+              if(localStorage.getItem("gridData") == null){
+                  gridster = $(".gridster ul").gridster({
+                    widget_margins: [4, 4],
+                    widget_base_dimensions: [140, 140],
+                    resize: {
+                        enabled: true
+                    }
+                  }).data('gridster');
                 }
-		    }).data('gridster');
-	
-            $('#btnDisplayData').on('click',function(){ 
-                var gridData = gridster.serialize();
-                alert(JSON.stringify(gridData));
-            });
-		});
-	</script>
-<input type="button" id="btnDisplayData" value="Display Data" />
-<div class="gridster">
-    <ul>
-        <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li>
-        <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
-        <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
- 
-        <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
-        <li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
- 
-        <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
-        <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
-        <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
- 
-        <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
-        <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
- 
-        <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
-        <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
-    </ul>
-</div>
-</body>
+                else 
+                {
+                  gridster = $(".gridster ul").gridster({
+                    widget_margins: [4, 4],
+                    widget_base_dimensions: [140, 140],
+                    resize: {
+                        enabled: true
+                    }
+                  }).data('gridster');
+      
+                  serialization = Gridster.sort_by_row_and_col_asc(localStorage.getItem("gridData"));
+                  gridster.remove_all_widgets();
+                  $.each(serialization, function() {
+                      gridster.add_widget('<li />', this.size_x, this.size_y, this.col, this.row);
+                  });
+                }
+              }        
+      });
+      
+      function addRoom(){
+        gridster.add_widget('<li data-row="1" data-col="1" data-sizex="1" data-sizey="1"><header><label style="cursor: hand;" onclick="EditRoomName();">Untitled</label><img style="float:right;cursor:hand;" src="images/remove.png" alt="Remove" height="20" width="20" onclick="removeRoom(this);"></header></li>');  
+      }
+      
+     function removeRoom(obj){
+        var selectedIndex = $('.gridster li').index(obj.parentElement.parentElement);
+        gridster.remove_widget( $('.gridster li').eq(selectedIndex) ); 
+      }
+
+      function EditRoomName(){
+        alert("In edit room");
+      }
+
+      function saveLayout(){
+          if(typeof(Storage) !== "undefined") {
+            localStorage.setItem("gridData", JSON.stringify(gridster.serialize()));
+          }
+          alert(localStorage.getItem("gridData"));
+      }
+
+      function displayData(){
+          var gridData = gridster.serialize();
+          alert("grid JSON " + JSON.stringify(gridData));
+          alert("local "+ localStorage.getItem("gridData"));
+      }
+      
+      function reload(){
+        serialization = Gridster.sort_by_row_and_col_asc(localStorage.getItem("gridData"));
+        gridster.remove_all_widgets();
+        $.each(serialization, function() {
+            gridster.add_widget('<li />', this.size_x, this.size_y, this.col, this.row);
+        });
+      }
+    </script>
+    <input type="button" id="btnDisplayData" onclick="displayData()" value="Display Data" />
+    <input type="button" id="btnSaveLayout" onclick="saveLayout();" value="Save Layout" />
+    <input type="button" id="btnReload" onclick="reload()" value="Reload" />
+    <img src="images/add.png" style="cursor:hand;" alt="Add" height="42" width="40" onclick="addRoom();">
+    <div class="gridster">
+      <ul>
+        <li data-row="1" data-col="1" data-sizex="2" data-sizey="1"><header><label style="cursor: hand;" onclick="EditRoomName();">
+        Hall</label><img style="float:right;cursor:hand;" src="images/remove.png" alt="Remove" height="20" width="20" onclick="removeRoom(this);"></header></li>
+        <li data-row="2" data-col="2" data-sizex="1" data-sizey="1"><header><label style="cursor: hand;" onclick="EditRoomName();">Kitchen</label><img style="float:right;cursor:hand;" src="images/remove.png" alt="Remove" height="20" width="20" onclick="removeRoom(this);"></header></header></li>
+        <li data-row="2" data-col="1" data-sizex="1" data-sizey="2"><header><label style="cursor: hand;" onclick="EditRoomName();">Bedroom</label><img style="float:right;cursor:hand;" src="images/remove.png" alt="Remove" height="20" width="20" onclick="removeRoom(this);"></header></header></li>
+        <li data-row="3" data-col="2" data-sizex="1" data-sizey="1"><header><label style="cursor: hand;" onclick="EditRoomName();">Bathroom</label><img style="float:right;cursor:hand;" src="images/remove.png" alt="Remove" height="20" width="20" onclick="removeRoom(this);"></header></header></li>
+      </ul>
+    </div>
+  </body>
 </html>
